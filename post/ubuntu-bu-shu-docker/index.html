@@ -1,0 +1,232 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Ubuntu 部署Docker | Gridea</title>
+<link rel="shortcut icon" href="https://iuunet.github.io/favicon.ico?v=1655645266471">
+<link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
+<link rel="stylesheet" href="https://iuunet.github.io/styles/main.css">
+<link rel="alternate" type="application/atom+xml" title="Ubuntu 部署Docker | Gridea - Atom Feed" href="https://iuunet.github.io/atom.xml">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
+
+
+
+    <meta name="description" content="第 1 步-安装 Docker
+官方 Ubuntu 存储库中提供的 Docker 安装软件包可能不是最新版本。
+Ubuntu 官方的版本库中并不一定是 Docker 最新的安装包，为了保证是最新版，我们从 Docker 官方库来安装。
+首先..." />
+    <meta name="keywords" content="docker,ubuntu" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+    <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+  </head>
+  <body>
+    <div class="main">
+      <div class="main-content">
+        <div class="site-header">
+  <a href="https://iuunet.github.io">
+  <img class="avatar" src="https://iuunet.github.io/images/avatar.png?v=1655645266471" alt="">
+  </a>
+  <h1 class="site-title">
+    Gridea
+  </h1>
+  <p class="site-description">
+    温故而知新
+  </p>
+  <div class="menu-container">
+    
+      
+        <a href="/" class="menu">
+          首页
+        </a>
+      
+    
+      
+        <a href="/archives" class="menu">
+          归档
+        </a>
+      
+    
+      
+        <a href="/tags" class="menu">
+          标签
+        </a>
+      
+    
+      
+        <a href="/post/about" class="menu">
+          关于
+        </a>
+      
+    
+  </div>
+  <div class="social-container">
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
+
+        <div class="post-detail">
+          <article class="post">
+            <h2 class="post-title">
+              Ubuntu 部署Docker
+            </h2>
+            <div class="post-info">
+              <span>
+                2022-06-19
+              </span>
+              <span>
+                4 min read
+              </span>
+              
+                <a href="https://iuunet.github.io/tag/UdGl32jOP/" class="post-tag">
+                  # docker
+                </a>
+              
+                <a href="https://iuunet.github.io/tag/c9y84lu5YN/" class="post-tag">
+                  # ubuntu
+                </a>
+              
+            </div>
+            
+            <div class="post-content-wrapper">
+              <div class="post-content">
+                <p>第 1 步-安装 Docker<br>
+官方 Ubuntu 存储库中提供的 Docker 安装软件包可能不是最新版本。</p>
+<p>Ubuntu 官方的版本库中并不一定是 Docker 最新的安装包，为了保证是最新版，我们从 Docker 官方库来安装。</p>
+<p>首先，更新现有的软件包列表：</p>
+<p>$ sudo apt update<br>
+注意：如果无法更新，可能是你的软件源指向是国外的服务器，很可能已经被墙。所有首次更新请打开 VPN。</p>
+<p>接下来，安装一些必备软件包，让 apt 通过 HTTPS 使用软件包。</p>
+<p>sudo apt install apt-transport-https ca-certificates curl software-properties-common<br>
+然后将官方 Docker 版本库的 GPG 密钥添加到系统中：</p>
+<p>curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -<br>
+执行后显示</p>
+<p>OK<br>
+将 Docker 版本库添加到APT源：</p>
+<p>sudo add-apt-repository &quot;deb [arch=amd64] https://download.docker.com/linux/ubuntu focal stable&quot;<br>
+执行后显示：</p>
+<p>Get:1 https://download.docker.com/linux/ubuntu focal InRelease [36.2 kB]<br>
+Hit:2 http://cn.archive.ubuntu.com/ubuntu focal InRelease<br>
+Get:3 https://download.docker.com/linux/ubuntu focal/stable amd64 Packages [3056 B]<br>
+Hit:4 http://cn.archive.ubuntu.com/ubuntu focal-updates InRelease<br>
+Hit:5 http://cn.archive.ubuntu.com/ubuntu focal-backports InRelease<br>
+Hit:6 http://cn.archive.ubuntu.com/ubuntu focal-security InRelease<br>
+Fetched 39.2 kB in 2s (16.1 kB/s)<br>
+Reading package lists... Done<br>
+接下来，我们用新添加的 Docker 软件包来进行升级更新。</p>
+<p>sudo apt update<br>
+确保要从 Docker 版本库，而不是默认的 Ubuntu 版本库进行安装：</p>
+<p>apt-cache policy docker-ce<br>
+执行后会看到这样的结果（ Docker 的版本号可能略有不同）</p>
+<p>docker-ce:<br>
+Installed: (none)<br>
+Candidate: 5:19.03.12<sub>3-0</sub>ubuntu-focal<br>
+Version table:<br>
+5:19.03.12<sub>3-0</sub>ubuntu-focal 500<br>
+500 https://download.docker.com/linux/ubuntu focal/stable amd64 Packages<br>
+5:19.03.11<sub>3-0</sub>ubuntu-focal 500<br>
+500 https://download.docker.com/linux/ubuntu focal/stable amd64 Packages<br>
+5:19.03.10<sub>3-0</sub>ubuntu-focal 500<br>
+500 https://download.docker.com/linux/ubuntu focal/stable amd64 Packages<br>
+5:19.03.9<sub>3-0</sub>ubuntu-focal 500<br>
+500 https://download.docker.com/linux/ubuntu focal/stable amd64 Packages<br>
+请注意，到目前这一步docker-ce还未安装，但根据上一步中的列表，可以看到 docker-ce 来自 Docker 官方版本库。</p>
+<p>最后，安装 Docker ：</p>
+<p>sudo apt install docker-ce<br>
+现在 Docker 已经安装完毕。我们启动守护程序。检查 Docker 是否正在运行：</p>
+<p>sudo systemctl status docker<br>
+执行结果类似以下内容，说明该服务处于活动状态并且正在运行：</p>
+<p>● docker.service - Docker Application Container Engine<br>
+Loaded: loaded (/lib/systemd/system/docker.service; enabled; vendor preset: enabled)<br>
+Active: active (running) since Sat 2020-07-08 02:55:20 UTC; 5min ago<br>
+TriggeredBy: ● docker.socket<br>
+Docs: https://docs.docker.com<br>
+Main PID: 4287 (dockerd)<br>
+Tasks: 8<br>
+Memory: 36.4M<br>
+CGroup: /system.slice/docker.service<br>
+└─4287 /usr/bin/dockerd -H fd:// --containerd=/run/containerd/containerd.sock<br>
+现在，安装 Docker 不仅可以为您提供 Docker 服务（守护程序），还可以为您提供docker命令行实用程序或 Docker 客户端。docker命令行的使用会在本教程后边讨论。</p>
+
+              </div>
+              <div class="toc-container">
+                
+              </div>
+            </div>
+          </article>
+        </div>
+
+        
+          <div class="next-post">
+            <div class="next">下一篇</div>
+            <a href="https://iuunet.github.io/post/hello-gridea/">
+              <h3 class="post-title">
+                Hello Gridea
+              </h3>
+            </a>
+          </div>
+        
+
+        
+
+        <div class="site-footer">
+  Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a>
+  <a class="rss" href="https://iuunet.github.io/atom.xml" target="_blank">
+    <i class="ri-rss-line"></i> RSS
+  </a>
+</div>
+
+      </div>
+    </div>
+
+    <script>
+      hljs.initHighlightingOnLoad()
+
+      let mainNavLinks = document.querySelectorAll(".markdownIt-TOC a");
+
+      // This should probably be throttled.
+      // Especially because it triggers during smooth scrolling.
+      // https://lodash.com/docs/4.17.10#throttle
+      // You could do like...
+      // window.addEventListener("scroll", () => {
+      //    _.throttle(doThatStuff, 100);
+      // });
+      // Only not doing it here to keep this Pen dependency-free.
+
+      window.addEventListener("scroll", event => {
+        let fromTop = window.scrollY;
+
+        mainNavLinks.forEach((link, index) => {
+          let section = document.getElementById(decodeURI(link.hash).substring(1));
+          let nextSection = null
+          if (mainNavLinks[index + 1]) {
+            nextSection = document.getElementById(decodeURI(mainNavLinks[index + 1].hash).substring(1));
+          }
+          if (section.offsetTop <= fromTop) {
+            if (nextSection) {
+              if (nextSection.offsetTop > fromTop) {
+                link.classList.add("current");
+              } else {
+                link.classList.remove("current");    
+              }
+            } else {
+              link.classList.add("current");
+            }
+          } else {
+            link.classList.remove("current");
+          }
+        });
+      });
+
+    </script>
+  </body>
+</html>

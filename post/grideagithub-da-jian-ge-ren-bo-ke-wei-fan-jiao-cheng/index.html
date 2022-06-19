@@ -1,0 +1,183 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Gridea+Github搭建个人博客喂饭教程 | Gridea</title>
+<link rel="shortcut icon" href="https://iuunet.github.io/favicon.ico?v=1655645266471">
+<link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
+<link rel="stylesheet" href="https://iuunet.github.io/styles/main.css">
+<link rel="alternate" type="application/atom+xml" title="Gridea+Github搭建个人博客喂饭教程 | Gridea - Atom Feed" href="https://iuunet.github.io/atom.xml">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
+
+
+
+    <meta name="description" content="注册Github
+打开Github官网，如果你有代理的话更好，如果没有的话，可以考虑下载Steam++。这个用法自行研究，很简单，打开就能用。楼主我是用代理。
+点击sing up for github,然后在跳出的页面中输入你的邮箱，按照官..." />
+    <meta name="keywords" content="" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+    <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+  </head>
+  <body>
+    <div class="main">
+      <div class="main-content">
+        <div class="site-header">
+  <a href="https://iuunet.github.io">
+  <img class="avatar" src="https://iuunet.github.io/images/avatar.png?v=1655645266471" alt="">
+  </a>
+  <h1 class="site-title">
+    Gridea
+  </h1>
+  <p class="site-description">
+    温故而知新
+  </p>
+  <div class="menu-container">
+    
+      
+        <a href="/" class="menu">
+          首页
+        </a>
+      
+    
+      
+        <a href="/archives" class="menu">
+          归档
+        </a>
+      
+    
+      
+        <a href="/tags" class="menu">
+          标签
+        </a>
+      
+    
+      
+        <a href="/post/about" class="menu">
+          关于
+        </a>
+      
+    
+  </div>
+  <div class="social-container">
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
+
+        <div class="post-detail">
+          <article class="post">
+            <h2 class="post-title">
+              Gridea+Github搭建个人博客喂饭教程
+            </h2>
+            <div class="post-info">
+              <span>
+                2022-06-19
+              </span>
+              <span>
+                4 min read
+              </span>
+              
+            </div>
+            
+            <div class="post-content-wrapper">
+              <div class="post-content">
+                <p>注册Github<br>
+打开Github官网，如果你有代理的话更好，如果没有的话，可以考虑下载Steam++。这个用法自行研究，很简单，打开就能用。楼主我是用代理。</p>
+<p>点击sing up for github,然后在跳出的页面中输入你的邮箱，按照官方的提示输入需要的信息，完成注册。之后进入你的Github，不要关闭，下面备用。</p>
+<p>下载Gridea<br>
+打开Gridea网站,下载你对应系统的版本，之后点击安装。打开你的Gridea程序。</p>
+<p>左下角的设置图标，点击打开它。可以看到有语言设置和站点源文件路劲，修改这个源文件路径到你想要的地方。如果你有OneDrive网盘的账号的话，可以在里面新建一个文件夹来存放默认Gridea的源文件。直接把它复制过去，这样以后你换电脑，只要同步OneDrive就可以完成多个终端写博客了。</p>
+<p>设置完源文件之后，我们开始设置Github连接的信息。打开远程选项，可以看到里面有很多种部署方法，今天就介绍Github Pages的方法。</p>
+<p>回到我们自己的Github网页上，新建一个仓库，仓库的名字（Repository name）要写自己的Github用户名.github.io,具体内容格式为mygithubname.github.io。其他的信息可以保持默认。之后点击头像-&gt;Settings-&gt;Developer settings-&gt;OAuth Apps,新建一个Token。</p>
+<p>可以直接点击这里跳转过去。勾选上 repo 的相关权限即可。生成之后记得把 Token 复制到你的本地，因为一旦关闭网页将不能再看到它。</p>
+<p>之后进入Gridea中设置相关信息。</p>
+<figure data-type="image" tabindex="1"><img src="https://iuunet.github.io/post-images/1655645255010.png" alt="" loading="lazy"></figure>
+<p>点击 Gridea 中的 同步按钮即可。初次部署等待几分钟之后就可以去浏览器访问了，默认地址为你在上面所填写的域名。</p>
+<p>如果操作遇到什么问题，请查看官方的部署文档，更加详细。我这里遇到的是github的用户名不清楚，可以点击头像出现的Singed in as 后面的就是你设置的用户名。</p>
+<p>Gridea设置git代理<br>
+由于github的服务器地址在国外，上传文件会很卡顿，而且经常失败。最近更新的v0.9.3中加入了git的代理设置，在Http代理中点击proxy，地址一般都是写上你的本地地址127.0.0.1，如果你有软路由的话，写你软路的地址。端口写上你代理软件对应出去的http端口，不要写成sockt的端口。</p>
+<p>个性化域名<br>
+上面的设置完成之后你访问用户名.github.io就能看到你的博客内容了。楼主这里是用的freenom的域名，然后在cloudflare上设置域名的。例如我有个blog.gridea.com的域名，那么在域名设置那里新建一个blog.gridea.com的A内容，这代表着ipv4的域名对应关系设置。里面的ip地址填写的是你获取github的ip地址。如果获取呢，通过在终端上ping 用户名.github.io 这个地址，就能看到你的Ip地址了。设置之后等待一段时间，这个时候访问你的域名blog.gridea.com就能看到你的博客网站了。</p>
+
+              </div>
+              <div class="toc-container">
+                
+              </div>
+            </div>
+          </article>
+        </div>
+
+        
+          <div class="next-post">
+            <div class="next">下一篇</div>
+            <a href="https://iuunet.github.io/post/ubuntu-bu-shu-docker/">
+              <h3 class="post-title">
+                Ubuntu 部署Docker
+              </h3>
+            </a>
+          </div>
+        
+
+        
+
+        <div class="site-footer">
+  Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a>
+  <a class="rss" href="https://iuunet.github.io/atom.xml" target="_blank">
+    <i class="ri-rss-line"></i> RSS
+  </a>
+</div>
+
+      </div>
+    </div>
+
+    <script>
+      hljs.initHighlightingOnLoad()
+
+      let mainNavLinks = document.querySelectorAll(".markdownIt-TOC a");
+
+      // This should probably be throttled.
+      // Especially because it triggers during smooth scrolling.
+      // https://lodash.com/docs/4.17.10#throttle
+      // You could do like...
+      // window.addEventListener("scroll", () => {
+      //    _.throttle(doThatStuff, 100);
+      // });
+      // Only not doing it here to keep this Pen dependency-free.
+
+      window.addEventListener("scroll", event => {
+        let fromTop = window.scrollY;
+
+        mainNavLinks.forEach((link, index) => {
+          let section = document.getElementById(decodeURI(link.hash).substring(1));
+          let nextSection = null
+          if (mainNavLinks[index + 1]) {
+            nextSection = document.getElementById(decodeURI(mainNavLinks[index + 1].hash).substring(1));
+          }
+          if (section.offsetTop <= fromTop) {
+            if (nextSection) {
+              if (nextSection.offsetTop > fromTop) {
+                link.classList.add("current");
+              } else {
+                link.classList.remove("current");    
+              }
+            } else {
+              link.classList.add("current");
+            }
+          } else {
+            link.classList.remove("current");
+          }
+        });
+      });
+
+    </script>
+  </body>
+</html>
